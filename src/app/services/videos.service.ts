@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { VideoInterface } from '../interfaces/video.interface';
 
 @Injectable({
@@ -18,6 +18,10 @@ export class VideosService {
 
   uploadVideo(videoInfo: any): Observable<any> {
     return this.http.post<VideoInterface[]>(this.baseUrl + 'videoUploadRequest', videoInfo)
+  }
+
+  searchVideo(key:any): Observable<VideoInterface[]> {
+    return this.http.get<VideoInterface[]>(`${this.baseUrl + 'searchVideos'}/${key}`)
   }
 
 }

@@ -1,4 +1,59 @@
-.card-body {
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap');
+
+/* .card-body {
     display: flex;
-    justify-content: center;
+} */
+
+/* .advert {
+    width: 27vw;
+    height: 60vw;
+    padding: 1vw;
+    background-image: url(https://cdn.discordapp.com/attachments/889362805713678407/1009719519763243038/crazy2boost_20220501_STORIES_2829049106415177217_51_2828587935538447853.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:top;
+} */
+
+/* #myVideo {
+    background-color: rgb(0, 0, 0);
+} */
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient( rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8) ), url(https://images.pexels.com/photos/2524145/pexels-photo-2524145.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-size: cover;
+    background-position-y: 5% ;
+    position: relative;
+}
+
+.container>h1{
+    /* border: 1px solid red; */
+    width: 70%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 22%;
+
+    font-family: 'Rubik Distressed', cursive;
+    font-size: 5vw;
+    /* font-weight: bold; */
+    color: whitesmoke;
+    line-height: 140%;
+}
+
+.container>button{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 60%;
+
+    border: none;
+    border-radius: 2vw;
+    background: #CE1E1E;
+    font-size: 2vw;
+    letter-spacing: .1vw;
+    padding: 1vw 2vw;
+    color: whitesmoke;
+
 }

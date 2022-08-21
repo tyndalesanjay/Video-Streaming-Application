@@ -1,19 +1,25 @@
-<app-header></app-header>
-<div class="container p-1">
-    <div class="border" style="max-width: 50vw; margin: auto; padding: 2vw;" *ngFor="let video of videos">
-        <!-- Heading -->
-        <h4 class="card-title">{{video.authorName}}</h4>
-        <h6 class="card-subtitle text-muted">Sun disappears!</h6>
+<!-- <app-header></app-header> -->
 
+<!-- <div class="container-fluid p-1">
+    <div class="advert" style="float: right;">
+    </div>
+    <div class="border-top" style="max-width: 60vw; padding: 2vw;" *ngFor="let video of videos"> -->
+        <!-- Heading -->
+        <!-- <div class="card-header">
+            <h4 class="card-title">{{video.authorName}}</h4>
+            <h6 class="card-subtitle text-muted">Sun disappears!</h6>
+        </div>
         <div class="card-body">
-            <video id="myVideo" [loop]="true" controls width="500" height="500">
+            <video id="myVideo" [loop]="true" width="900" height="500">
                 <source src="{{video.videoLink}}" type="video/mp4">
             </video>
         </div>
-        
-        <!-- Text Content -->
-        <div class="card-body">
-            <p class="card-text">The sun disappeared behind the horizon today. Experts claim it could be gone for good!</p>
-        </div>
+        <p class="card-text">The sun disappeared behind the horizon today. Experts claim it could be gone for good!</p>
     </div>
+</div> -->
+
+<div class="container">
+    <h1>Your number one spot for<br> the latest movie trailers</h1>
+
+    <button [routerLink]="['/search/JMac']" routerLinkActive="router-link-active" >Explore</button>
 </div>

@@ -1,36 +1,57 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <header class="header-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
     <div class="container-fluid">
-      <a class="navbar-brand " href="#">Video Home</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <h2><a routerLink="/" class="text-decoration-none title">Crazy<span>2</span>Boost.Ja</a></h2>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarScroll">
-        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact Us</a>
+            <a class="nav-link" href="#">Upcoming Events</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                More Options
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              More Options
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <li><a class="dropdown-item" routerLink="/upload">Upload Video</a></li>
-              <li><a class="dropdown-item" href="#">How it Works</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="#">About Us</a></li>
+              <li><a class="dropdown-item" href="#">Contact Us</a></li>
             </ul>
           </li>
         </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
       </div>
+      <button class=" btn-lg me-4 btn-primary" routerLink="/upload">Upload Video</button>
     </div>
   </nav>
+</header> -->
+
+<header>
+  <div class="logo">
+    <a href="#">
+      Crazy<span>2</span>Boost.Ja
+    </a>
+  </div>
+  <div class="search" >
+    <!-- <form action="" (submit)="searchVideos()">
+    </form> -->
+      <input type="text" [(ngModel)]="search" placeholder="Search here...">
+      <div class="s-icon" (click)="searchVideos()">
+        <span ><i class="fa-solid fa-magnifying-glass"></i></span>
+      </div>
+    
+      <!-- <input type="text" [(ngModel)]="search" placeholder="Search here...">
+      <div class="s-icon">
+        <button [routerLink]="['/trailers/{{search}}']"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <button [routerLink]="['/trailers/${}']">{{search}}</button>
+      </div> -->
+    
+  </div>
+  <button >
+    Upload video
+  </button>
+</header>

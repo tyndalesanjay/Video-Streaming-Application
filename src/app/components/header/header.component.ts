@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output ,EventEmitter } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { VideosService } from 'src/app/services/videos.service';
+import { VideoInterface } from 'src/app/interfaces/video.interface';
+
 
 @Component({
   selector: 'app-header',
@@ -7,9 +12,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  videosData: VideoInterface[] = [];  
+  search = '';
+
+  constructor(private videoService: VideosService, private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  searchForm = this.fb.group({
+    search: ['', Validators.required]
+  })
+
+  // search? = this.searchForm.get('search').value
+
+  searchVideos(): void{
+      this.router.navigate([`/search/${this.search}`])
+      console.error();
+  }
 }

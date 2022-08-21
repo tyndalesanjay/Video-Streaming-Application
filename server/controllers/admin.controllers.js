@@ -74,7 +74,22 @@ exports.updateAdmin = async (req, res) => {
   };
 
   try {
-    let update = await Admin.updateOne(adminUpdate);
+    let update = await Admin.updateById(req.params.id, adminUpdate);
+    res.status(200).json({
+      status: "Updated",
+      results: update,
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: "Fail",
+      message: error,
+    });
+  }
+};
+
+exports.DeleteAdmin = async (req, res) => {
+  try {
+    let update = await Admin.findByIdAndDelete(req.params.id);
     res.status(200).json({
       status: "Updated",
       results: update,
@@ -88,5 +103,23 @@ exports.updateAdmin = async (req, res) => {
 };
 // * End of Admin Routes
 
+const Message = require('../models/contact.model')
 
+exports.getAll = async (req, res, next) => {
+    try {
+        const allMessages = await Message.find()
+        
+        res.status(200).json({
+            status: "Success",
+            length: allMessages.length,
+            results: allMessages,
+        })
+    } catch (error) {
+        res.status(502).json({
+            status: "Fail",
+            message: error
+        })
+    }
+    next()
+}
 

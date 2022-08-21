@@ -9,7 +9,14 @@ import { VideosService } from 'src/app/services/videos.service';
 })
 export class UploadsComponent implements OnInit {
 
-  
+  title = 'Upload';
+  files: any;
+
+  formInfo: any = {
+    authorName: "",
+    videoLink: "",
+    description: ""
+  }
 
   constructor(private fb: FormBuilder, private videoService: VideosService) { }
 
@@ -22,12 +29,32 @@ export class UploadsComponent implements OnInit {
     description: ['', Validators.required]
   })
 
+  selectFile(event: any) {
+    if(event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.files = file
+    }
+  }
+
   sendVideo() {
-    this.videoService.uploadVideo(this.uploadForm.value).subscribe((data: any) => {
-      console.log(this.uploadForm.value)
-      console.log(data)
-      console.error();
-      
+
+    const formData = new FormData()
+    formData.append(this.formInfo.videoLink, this.files);
+    
+    
+    let videoInfo = {
+      authorName: this.formInfo.authorName,
+      videoLink: this.formInfo.videoLink,
+      description: this.formInfo.description
+    }
+
+    this.videoService.uploadVideo(videoInfo).subscribe((data: any) => {
+      if(!data) {
+        console.error();
+      } else {
+        console.log(data);
+        alert('Worked')
+      }
     })
   }
 
