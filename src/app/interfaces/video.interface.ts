@@ -1,6 +1,9 @@
 export interface VideoInterface {
-    authorName: String
+    releaseDate: String
     videoLink: String
     description: String
     videoName: String
+    videoImage: String
+    status: String
+    dateCreated: Date
 }

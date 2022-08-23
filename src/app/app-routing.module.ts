@@ -11,7 +11,10 @@ const routes: Routes = [
   { path: 'contact', loadChildren: () => import('./components/contact-us/contact-us.module').then(m => m.ContactUsModule) },
   { path: 'updateMessage/:id', loadChildren: () => import('./components/update-message/update-message.module').then(m => m.UpdateMessageModule) },
   { path: 'trailers', loadChildren: () => import('./components/trailers/trailers.module').then(m => m.TrailersModule) },
-  { path: 'search/:key', loadChildren: () => import('./components/search-results/search-results.module').then(m => m.SearchResultsModule) }
+  { path: 'search/:key', loadChildren: () => import('./components/search-results/search-results.module').then(m => m.SearchResultsModule) },
+  { path: 'contact_tbl', loadChildren: () => import('./components/contact-tbl/contact-tbl.module').then(m => m.ContactTblModule) },
+  { path: 'trailers_tbl', loadChildren: () => import('./components/trailers-tbl/trailers-tbl.module').then(m => m.TrailersTblModule) },
+  { path: 'watch_trailer/:id', loadChildren: () => import('./pages/view-trailer/view-trailer.module').then(m => m.ViewTrailerModule) }
 ];
 
 @NgModule({

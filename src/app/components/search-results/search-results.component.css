@@ -8,28 +8,21 @@
     align-items: center;
 }
 
-.card{
-    /* border: 1px solid red; */
-    width: 22vw;
-    margin-bottom: 1vw;
-    overflow: hidden;
-}
-
-video{
+/* video{
     /* border: 1px solid red;
     border-radius: 4px;
     
     height: 100%;
-    object-fit: cover; */
+    object-fit: cover; 
     width: 100%;
       
     
-}
+} */
 
-.info>b{
+/* .info>b{
     font-size: 1.3vw;
 }
 .info>p{
     font-size: 1.2vw;
     color: #313131;
-}
+} */

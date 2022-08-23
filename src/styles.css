@@ -8,8 +8,71 @@
 }
 body {
   overflow-x: hidden;
-  background: #F6F6F6;
+  background: #f6f6f6;
 }
 
-html, body { height: 100%; }
-body { margin: 0;}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+}
+
+video {
+  object-fit: cover;
+  object-position: 20% 42%;
+  width: 100%;
+}
+
+video::-webkit-media-controls-panel {
+  display: none !important;
+  opacity: 1 !important;
+}
+
+.card {
+  /* border: 1px solid red; */
+  width: 22vw;
+  margin-bottom: 1vw;
+  overflow: hidden;
+}
+
+.info > p {
+  font-size: 1.2vw;
+  color: #313131;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 8vw;
+  margin-top: 1vw;
+}
+
+.card > a > img {
+  width: 24vw;
+  height: 28vw;
+}
+
+.info > b {
+  font-size: 1.3vw;
+}
+.info > p {
+  font-size: 1.2vw;
+  color: #313131;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 8vw;
+}
+
+.info > small {
+  font-size: small;
+  padding: 2vw 0;
+}
+
+.info > small > span {
+  font-weight: bolder;
+}

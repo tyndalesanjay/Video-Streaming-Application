@@ -13,7 +13,7 @@ export class SearchResultsComponent implements OnInit {
   currentPlayingVideo!: HTMLVideoElement;
   videosData: VideoInterface[] = [];
   refreshed = true;
-
+  video: any= document.getElementById("video");
   constructor(private videoService: VideosService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -21,21 +21,19 @@ export class SearchResultsComponent implements OnInit {
     this.router.routeReuseStrategy.shouldReuseRoute = () => {
       return false
     }
-  }
 
-  // getSearched(): void;
+  };
+
+  
 
   getSearch(key: any): void{
     this.videoService.searchVideo(key).subscribe((data: any) => {
       if(this.refreshed){
         this.videosData = data.results
         this.refreshed = false
-      }  
-        
-      console.log(this.videosData);
-      console.log(this.router.url);
-      
+      }
       console.error();
+      
     })
 
   }

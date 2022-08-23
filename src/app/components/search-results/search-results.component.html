@@ -1,15 +1,16 @@
 <div class="container">
     <div class="card" *ngFor="let video of videosData">
-        <!-- <a href="#"> -->
-            <video controls (playing)="onPlayingVideo($event)" width="900"
+        <a href="#">
+            <!-- <video loop controls (playing)="onPlayingVideo($event)" width="900"
             height="337"
             style="width: 300px; height: 15vw;">
                 <source src="{{video.videoLink}}" type="video/mp4">
-            </video>
-        <!-- </a> -->
+            </video> -->
+            <img src="{{video.videoImage}}" alt="" >
+        </a>
         <div class="info">
             <b>{{video.videoName}}</b><br>
-            <small>{{video.authorName}}</small>
+            <small><span>Release Date:</span> {{video.releaseDate}}</small>
             <p>{{video.description}}</p>
         </div>
     </div>

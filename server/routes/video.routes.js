@@ -4,7 +4,7 @@ const videoController = require('../controllers/video.controllers');
 const upload = require('../_helpers/upload');
 
 router
-    .get('/', videoController.getVideos)
+    .get('/', videoController.getVideosActive)
     .post('/videoUploadRequest', videoController.videoUpload)
     .delete('/deleteDeclinedUpload', videoController.deleteAllDeclined)
     .get('/searchVideos/:key', videoController.SearchVideos)

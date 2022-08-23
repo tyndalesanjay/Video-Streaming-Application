@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="fluid-container p-4">
   <div class="row mx-3 justify-content-end">
     <div class="col-md-7 col-lg-5 px-lg-2 col-xl-4 px-xl-0 px-xxl-3">
@@ -52,4 +52,49 @@
       </form>
     </div>
   </div>
+</div> -->
+
+<!-- ================================================================================== -->
+
+<div class="container">
+  <form [formGroup]="uploadForm" (submit)="sendVideo()">
+    <h2>Upload your video</h2>
+
+    <div>
+      <label for="authorName"> Username </label><br />
+      <input
+        type="text"
+        id="authorName"
+        formControlName="authorName"
+        name="authorName"
+        [(ngModel)]="formInfo.authorName"
+      />
+    </div>
+
+    <div>
+      <label for="videoLink">Video Link</label>
+      <input
+        type="text"
+        required
+        id="videoLink"
+        formControlName="videoLink"
+        name="videoLink"
+      />
+    </div>
+
+    <div>
+      <label for="description">Video description</label><br />
+      <textarea
+        id="descrip"
+        formControlName="description"
+        name="description"
+        rows="4"
+        [(ngModel)]="formInfo.description"
+      ></textarea>
+    </div>
+
+    <div>
+      <button type="submit">Upload</button>
+    </div>
+  </form>
 </div>

@@ -39,8 +39,8 @@
   <div class="search" >
     <!-- <form action="" (submit)="searchVideos()">
     </form> -->
-      <input type="text" [(ngModel)]="search" placeholder="Search here...">
-      <div class="s-icon" (click)="searchVideos()">
+      <input type="text" id="searchInput" [(ngModel)]="search" placeholder="Search here..." >
+      <div class="s-icon" (click)="searchVideos()" id="myBtn">
         <span ><i class="fa-solid fa-magnifying-glass"></i></span>
       </div>
     
@@ -51,7 +51,8 @@
       </div> -->
     
   </div>
-  <button >
+
+  <!-- <button [routerLink]="['/upload']">
     Upload video
-  </button>
+  </button> -->
 </header>

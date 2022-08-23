@@ -2,11 +2,15 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const videoSchema = new Schema({
-  authorName: {
+  releaseDate: {
     type: String,
     required: true
   },
   videoName: {
+    type: String,
+    required: true
+  },
+  videoImage: {
     type: String,
     required: true
   },
@@ -23,7 +27,7 @@ const videoSchema = new Schema({
   },
   createdDate: {
     type: Date,
-    default: Date.now,
+    default: Date.now.toString,
   },
 });
 

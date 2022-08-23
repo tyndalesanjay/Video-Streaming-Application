@@ -1,4 +1,57 @@
-.form-outline, 
+/* .form-outline, 
 .input-group {
     padding: 1rem;
+} */
+
+/* .container{
+    border: 1px solid red; 
+} */
+
+form{
+    /* border: 1px solid red; */
+    border-radius: 1vw;
+    background: white;
+    width: 40vw;
+    margin: auto;
+    margin-top: 2vw;
+    padding: 2vw;
+}
+
+form>h2{
+    font-size: 2vw;
+}
+
+form>div{
+    margin-bottom: 2vw;
+}
+form>div>label{
+    font-size: 1.2vw;
+}
+
+form>div>input{
+    border: .1vw solid black;
+    border-radius: .4vw;
+    width: 100%;
+    height: 3vw;
+    background: none;
+    padding: 1%;
+    outline: none;
+}
+
+div>textarea{
+    border: .1vw solid black;
+    width: 100%;
+    height: 10vw;
+    resize: none;
+}
+
+div>button{
+    border: none;
+    border-radius: .2vw;
+    background: #CE1E1E;
+    width: 100%;
+    height: 3vw;
+    color: whitesmoke;
+    font-size: 1.5vw;
+    cursor: pointer;
 }

@@ -1,12 +1,13 @@
 const express = require("express");
 const router = express.Router();
 const adminController = require("../controllers/admin.controllers");
-const videoController = require("../controllers/video.controllers")
+const videoController = require("../controllers/video.controllers");
 const contactController = require("../controllers/contact.controllers")
 
 //* Admin Controllers
   router
     .get('/', adminController.getAdmins)
+    .get('/')
     .get('/videosRequest', videoController.getVideos)
     .get('/getMessages', contactController.getAll)
     .post('/createAdmin', adminController.createAdmin)

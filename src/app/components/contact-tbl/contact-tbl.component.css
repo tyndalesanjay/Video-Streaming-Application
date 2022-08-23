@@ -1,0 +1,46 @@
+.container{
+    /* border: 1px solid red; */
+    width: 100vw;
+    padding: 2vw;
+}
+
+.container>button{
+    border: none;
+    border-radius: .2vw;
+    padding: .5vw 1vw;
+    margin-bottom: 1vw;
+    background: black;
+    color: whitesmoke;
+    font-size: 1.5vw;
+    transition: .5s;
+}
+.container>button:hover{
+    cursor: pointer;
+    background: #CE1E1E;
+}
+
+table{
+    width: 100%;
+}
+table, th, td{
+    /* border: 1px solid red; */
+    border-collapse: collapse;
+    padding: 1vw;
+}
+th, td{
+    text-align: left;
+}
+th{
+    background: #a7acb4;
+    font-size: 1.5vw;
+}
+
+td{
+    font-size: 1.2vw;
+}
+
+td>a{
+    text-decoration: none;
+    color: #CE1E1E;
+    font-size: 2vw;
+}

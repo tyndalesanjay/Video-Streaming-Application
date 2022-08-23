@@ -14,6 +14,8 @@ export class HeaderComponent implements OnInit {
 
   videosData: VideoInterface[] = [];  
   search = '';
+  input: any = document.getElementById("searchInput");
+  btn: any = document.getElementById("myBtn")
 
   constructor(private videoService: VideosService, private fb: FormBuilder, private router: Router) { }
 
@@ -27,7 +29,16 @@ export class HeaderComponent implements OnInit {
   // search? = this.searchForm.get('search').value
 
   searchVideos(): void{
+    if (this.search === '') {
+      this.router.navigate([`/trailers`])
+      alert('No Movies Found')
+    } else {
       this.router.navigate([`/search/${this.search}`])
       console.error();
+    }
   }
+
+// Execute a function when the user releases a key on the keyboard
+
+   
 }

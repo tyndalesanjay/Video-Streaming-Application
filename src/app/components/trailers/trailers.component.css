@@ -8,28 +8,10 @@
     align-items: center;
 }
 
-.card{
-    /* border: 1px solid red; */
-    width: 22vw;
-    margin-bottom: 1vw;
-    overflow: hidden;
+.info > small {
+    font-size: small;
 }
-
-video{
-    /* border: 1px solid red;
-    border-radius: 4px;
-    
-    height: 100%;
-    object-fit: cover; */
-    width: 100%;
-      
-    
-}
-
-.info>b{
-    font-size: 1.3vw;
-}
-.info>p{
-    font-size: 1.2vw;
-    color: #313131;
+  
+.info > small > span {
+  font-weight: bolder;
 }

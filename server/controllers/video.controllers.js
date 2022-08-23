@@ -1,9 +1,25 @@
-const { response } = require("../app");
 const Videos = require("../models/video.model");
+
+exports.getVideosActive = async (req, res, next) => {
+  try {
+    let videoRequest = await Videos.find({ $where: function() { return ( this.status === "Active" ) } });
+    res.status(200).json({
+      status: "Success",
+      length: videoRequest.length,
+      results: videoRequest,
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: "fail",
+      message: error,
+    });
+  }
+  next();
+};
 
 exports.getVideos = async (req, res, next) => {
   try {
-    let videoRequest = await Videos.find({ $where: function() { return ( this.status === "Active" ) } });
+    let videoRequest = await Videos.find();
     res.status(200).json({
       status: "Success",
       length: videoRequest.length,
@@ -34,23 +50,22 @@ exports.getVideoId = async (req, res, next) => {
   next();
 };
 
-exports.SearchVideos = async (req, resp, next) => {
+exports.SearchVideos = async (req, res, next) => {
   try {
     let data = await Videos.find(
       {
         "$or": [
-          {authorName: {$regex:req.params.key}},
-          {videoName: {$regex:req.params.key}},
+          {videoName: {$regex:req.params.key, '$options' : 'i'}},
         ]
       }
     )
-    resp.status(200).json({
+    res.status(200).json({
       status: "Success",
       length: data.length,
       results: data
     });
   } catch (error) {
-    resp.status({
+    res.status({
       status: "Fail",
       message: error,
     });
@@ -61,7 +76,7 @@ exports.SearchVideos = async (req, resp, next) => {
 
 exports.videoUpload = async (req, res, next) => {
   const videoInfo = {
-    authorName: req.body.authorName,
+    releaseDate: req.body.releaseDate,
     videoName: req.body.videoName,
     description: req.body.description,
     videoLink: req.body.videoLink
@@ -94,7 +109,7 @@ exports.videoUpload = async (req, res, next) => {
 
 exports.updateVideoById = async (req, res, next) => {
   const videoInfo = {
-    authorName: req.body.authorName,
+    releaseDate: req.body.releaseDate,
     videoName: req.body.videoName,
     description: req.body.description,
     videoLink: req.body.videoLink,

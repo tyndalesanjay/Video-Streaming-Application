@@ -96,12 +96,13 @@ header{
     background: transparent;
 }
 
-header>button{
-    /* border: 1px solid red; */
+/* header>button{
+    border: 1px solid red;
     border: none;
     font-size: 1.2vw;
     border-radius: 2vw;
     background: #CE1E1E;
     color: whitesmoke;
     padding: .7vw;
-}
+    cursor: pointer;
+} */
