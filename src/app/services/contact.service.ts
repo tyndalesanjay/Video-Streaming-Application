@@ -16,7 +16,7 @@ export class ContactService {
   }
 
   getById(id: string): Observable<Message[]> {
-    return this.http.get<Message[]>(`${this.baseUrl} + 'get_message'/${id}`)
+    return this.http.get<Message[]>(`${this.baseUrl + 'get_message'}/${id}`)
   }
 
   sendMessage(messageInfo: any): Observable<Message[]> {
@@ -24,10 +24,10 @@ export class ContactService {
   }
 
   updateMessage(id: string, messageUpdate: any): Observable<Message[]> {
-    return this.http.put<Message[]>(`${this.baseUrl} + 'update_message'/${id}`, messageUpdate)
+    return this.http.put<Message[]>(`${this.baseUrl + 'update_message'}/${id}`, messageUpdate)
   }
 
   deleteMessage(id: string): Observable<Message[]> {
-    return this.http.delete<Message[]>(`${this.baseUrl} + 'delete_message'/${id}`)
+    return this.http.delete<Message[]>(`${this.baseUrl + 'delete_message'}/${id}`)
   }
 }

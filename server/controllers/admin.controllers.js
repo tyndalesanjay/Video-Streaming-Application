@@ -8,7 +8,7 @@ exports.getAdmins = async (req, res, next) => {
     let getAdmins = await Admin.find();
     res.status(200).json({
       status: "Success",
-      results: getAdmins.length,
+      length: getAdmins.length,
       getAdmins,
     });
   } catch (err) {
@@ -74,7 +74,7 @@ exports.updateAdmin = async (req, res) => {
   };
 
   try {
-    let update = await Admin.updateById(req.params.id, adminUpdate);
+    let update = await Admin.findByIdAndUpdate(req.params.id, adminUpdate);
     res.status(200).json({
       status: "Updated",
       results: update,

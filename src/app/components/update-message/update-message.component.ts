@@ -22,13 +22,27 @@ export class UpdateMessageComponent implements OnInit {
   }
 
   contactForm = this.fb.group({
-
+    name: ['', Validators.required],
+    subject: ['', Validators.required],
+    email: ['', Validators.required],
+    message: ['', Validators.required] 
   })
 
   getMessage(id: any) {
     this.messageService.getById(id).subscribe((data: any) => {
-      this.message = data.data
+      this.message = data.results
       console.log(this.message)
+    })
+  }
+
+  deleteMessage(id: any) {
+    this.messageService.deleteMessage(id).subscribe((data) => {
+      if(!data) {
+        console.error();
+      } else {
+        this.router.navigate(['/admin'])
+        alert('Deleted Message')
+      }
     })
   }
 

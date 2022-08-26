@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { TrailersRoutingModule } from './trailers-routing.module';
 import { TrailersComponent } from './trailers.component';
+import { WatchTrailersComponent } from './watch-trailers/watch-trailers.component';
 
 
 @NgModule({
   declarations: [
-    TrailersComponent
+    TrailersComponent,
+    WatchTrailersComponent
   ],
   imports: [
     CommonModule,

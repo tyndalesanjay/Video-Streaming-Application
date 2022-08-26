@@ -1,3 +1,211 @@
 <div class="container">
-    <h1>oppai</h1>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class="bx bxl-c-plus-plus"></i>
+      <i class="fa-solid fa-house-window"></i>
+      <span class="logo_name"></span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="#" class="active">
+          <i class="bx bx-grid-alt"></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-box"></i>
+          <span class="links_name">Books</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-list-ul"></i>
+          <span class="links_name">Order list</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="bx bx-message"></i>
+          <span class="links_name">Messages</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/upload']">
+          <i class="bx bx-cog"></i>
+          <span class="links_name">Upload New Video</span>
+        </a>
+      </li>
+      <li class="log_out">
+        <a href="#">
+          <i class="bx bx-log-out"></i>
+          <span class="links_name">Log out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+
+    
+      <div class="overview-boxes">
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Total Staff</div>
+            <div class="number">{{adminLength}}</div>
+          </div>
+          <i class="fa-solid fa-users"></i>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Total Trailers</div>
+            <div class="number">{{videoLength}}</div>
+          </div>
+          <!-- <i class="fa-solid fa-clapperboard-play"></i> -->
+          <i class="fa-solid fa-video"></i>
+        </div>
+        <div class="box">
+          <div class="right-side">
+            <div class="box-topic">Total Messages</div>
+            <div class="number">{{contactLength}}</div>
+          </div>
+          <i class="fa-solid fa-sack-dollar"></i>
+        </div>
+      </div>
+
+      <div class="tables">
+        <!-- <button routerLink="/admin">back</button> -->
+        <table class="trailers">
+          <thead>
+            <tr>
+              <!-- <h1>Trailers</h1> -->
+            </tr>
+            <tr>
+              <th>Video name</th>
+              <!-- <th>Video link</th> -->
+              <th>Release date</th>
+              <!-- <th>Description</th> -->
+              <th>Status</th>
+              <!-- <th>Date created</th> -->
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let video of videos | paginate: { itemsPerPage: 2, currentPage: p }">
+              <td>{{video.videoName}}</td>
+              <!-- <td>{{video.videoLink}}</td> -->
+              <td>{{video.releaseDate}}</td>
+              <!-- <td>{{video.description}}</td> -->
+              <td>{{video.status}}</td>
+              <!-- <td>{{video.createdDate}}</td> -->
+              <td>
+                <a [routerLink]="['/trailers_tbl', video._id]">
+                  <i class="fa-solid fa-film"></i>
+                </a>
+                <a href="#">
+                  <i class="fa-solid fa-clapperboard"></i>
+                </a>
+                <a (click)="deleteVideo(video._id)">
+                  <i class="fa-solid fa-video-slash"></i>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </table>
+
+        <table class="contacts">
+          <thead>
+            <tr>
+              <!-- <h1>Contacts</h1> -->
+            </tr>
+            <tr>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contact of message">
+                <td><a [routerLink]="['/updateMessage', contact._id]">{{contact.name}}</a></td>
+                <td>{{contact.subject}}</td>
+                <td>{{contact.email}}</td>
+                <td>
+                    <a (click)="deleteMessage(contact._id)">
+                        <i class="fa-solid fa-user-minus"></i>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+      </div>
+      
+      <!-- <div class="">
+        <div class="top-sales box">
+          <div class="title">Top Seling Product</div>
+          <ul class="top-sales-details">
+            <li>
+              <a href="#">
+                <img src="images/sunglasses.jpg" alt="">
+                <span class="product">Vuitton Sunglasses</span>
+              </a>
+              <span class="price">$1107</span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="images/jeans.jpg" alt="">
+                <span class="product">Hourglass Jeans </span>
+              </a>
+              <span class="price">$1567</span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="images/nike.jpg" alt="">
+                <span class="product">Nike Sport Shoe</span>
+              </a>
+              <span class="price">$1234</span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="images/scarves.jpg" alt="">
+                <span class="product">Hermes Silk Scarves.</span>
+              </a>
+              <span class="price">$2312</span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="images/blueBag.jpg" alt="">
+                <span class="product">Succi Ladies Bag</span>
+              </a>
+              <span class="price">$1456</span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="images/bag.jpg" alt="">
+                <span class="product">Gucci Womens's Bags</span>
+              </a>
+              <span class="price">$2345</span>
+            </li>
+
+            <li>
+              <a href="#">
+                <img src="images/addidas.jpg" alt="">
+                <span class="product">Addidas Running Shoe</span>
+              </a>
+              <span class="price">$2345</span>
+            </li>
+            <li>
+              <a href="#">
+                <img src="images/shirt.jpg" alt="">
+                <span class="product">Bilack Wear's Shirt</span>
+              </a>
+              <span class="price">$1245</span>
+            </li>
+          </ul>
+        </div>
+      </div> -->
+
+  <script>
+   
+  </script>
 </div>

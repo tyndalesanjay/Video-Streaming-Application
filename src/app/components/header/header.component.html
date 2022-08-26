@@ -30,29 +30,16 @@
   </nav>
 </header> -->
 
-<header>
+<header id="header">
   <div class="logo">
     <a href="#">
-      Crazy<span>2</span>Boost.Ja
+      Crazy<span>2</span>Trailers
     </a>
   </div>
   <div class="search" >
-    <!-- <form action="" (submit)="searchVideos()">
-    </form> -->
       <input type="text" id="searchInput" [(ngModel)]="search" placeholder="Search here..." >
       <div class="s-icon" (click)="searchVideos()" id="myBtn">
         <span ><i class="fa-solid fa-magnifying-glass"></i></span>
       </div>
-    
-      <!-- <input type="text" [(ngModel)]="search" placeholder="Search here...">
-      <div class="s-icon">
-        <button [routerLink]="['/trailers/{{search}}']"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <button [routerLink]="['/trailers/${}']">{{search}}</button>
-      </div> -->
-    
   </div>
-
-  <!-- <button [routerLink]="['/upload']">
-    Upload video
-  </button> -->
 </header>

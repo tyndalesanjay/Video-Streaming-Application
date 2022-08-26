@@ -5,14 +5,16 @@ const upload = require('../_helpers/upload');
 
 router
     .get('/', videoController.getVideosActive)
-    .post('/videoUploadRequest', videoController.videoUpload)
+    .post('/videoUpload', videoController.videoUpload)
     .delete('/deleteDeclinedUpload', videoController.deleteAllDeclined)
     .get('/searchVideos/:key', videoController.SearchVideos)
+    .get('/videos', videoController.getVideos)
     // .post('/videoUploadRequest', upload.single('videoLink'), videoController.videoUpload)
     
     router
-    .get('/:id', videoController.getVideoId)
+    .get('/trailer/:id', videoController.getVideoId)
     .put('/updateVideo/:id', videoController.updateVideoById)
+    .put('/reviews/:id', videoController.postReview)
     .delete('/deleteVideo/:id', videoController.deleteVideoById)
 
 module.exports =  router;

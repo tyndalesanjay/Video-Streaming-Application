@@ -19,7 +19,7 @@ export class TrailersComponent implements OnInit {
   }
 
   getvideos() {
-    this.videoService.getvideos().subscribe((data) => {
+    this.videoService.getvideos().subscribe((data: any) => {
       if (!data) {
         throw new Error('No Videos Found');
       }

@@ -61,18 +61,26 @@
     <h2>Upload your video</h2>
 
     <div>
-      <label for="authorName"> Username </label><br />
+      <label for="videoName"> Trailer Name </label><br />
       <input
         type="text"
-        id="authorName"
-        formControlName="authorName"
-        name="authorName"
-        [(ngModel)]="formInfo.authorName"
+        id="videoName"
+        formControlName="videoName"
+        name="videoName"
+      />
+    </div>
+    <div>
+      <label for="releaseDate"> Trailer Image </label><br />
+      <input
+        type="text"
+        id="releaseDate"
+        formControlName="releaseDate"
+        name="releaseDate"
       />
     </div>
 
     <div>
-      <label for="videoLink">Video Link</label>
+      <label for="videoLink">Trailer Link</label>
       <input
         type="text"
         required
@@ -83,13 +91,23 @@
     </div>
 
     <div>
+      <label for="videoImage">Video Image</label>
+      <input
+        type="text"
+        required
+        id="videoImage"
+        formControlName="videoImage"
+        name="videoImage"
+      />
+    </div>
+
+    <div>
       <label for="description">Video description</label><br />
       <textarea
         id="descrip"
         formControlName="description"
         name="description"
         rows="4"
-        [(ngModel)]="formInfo.description"
       ></textarea>
     </div>
 

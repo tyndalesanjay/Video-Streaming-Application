@@ -7,6 +7,7 @@
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 body {
+  width: 100vw;
   overflow-x: hidden;
   background: #f6f6f6;
 }
@@ -25,14 +26,14 @@ video {
   width: 100%;
 }
 
-video::-webkit-media-controls-panel {
+/* video::-webkit-media-controls-panel {
   display: none !important;
   opacity: 1 !important;
-}
+} */
 
 .card {
   /* border: 1px solid red; */
-  width: 22vw;
+  width: 16vw;
   margin-bottom: 1vw;
   overflow: hidden;
 }
@@ -41,7 +42,7 @@ video::-webkit-media-controls-panel {
   font-size: 1.2vw;
   color: #313131;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -50,7 +51,7 @@ video::-webkit-media-controls-panel {
 }
 
 .card > a > img {
-  width: 24vw;
+  width: 16vw;
   height: 28vw;
 }
 

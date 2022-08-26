@@ -13,8 +13,7 @@ const routes: Routes = [
   { path: 'trailers', loadChildren: () => import('./components/trailers/trailers.module').then(m => m.TrailersModule) },
   { path: 'search/:key', loadChildren: () => import('./components/search-results/search-results.module').then(m => m.SearchResultsModule) },
   { path: 'contact_tbl', loadChildren: () => import('./components/contact-tbl/contact-tbl.module').then(m => m.ContactTblModule) },
-  { path: 'trailers_tbl', loadChildren: () => import('./components/trailers-tbl/trailers-tbl.module').then(m => m.TrailersTblModule) },
-  { path: 'watch_trailer/:id', loadChildren: () => import('./pages/view-trailer/view-trailer.module').then(m => m.ViewTrailerModule) }
+  { path: 'trailers_tbl/:id', loadChildren: () => import('./components/trailers-tbl/trailers-tbl.module').then(m => m.TrailersTblModule) }
 ];
 
 @NgModule({

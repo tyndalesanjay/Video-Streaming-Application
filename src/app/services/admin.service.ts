@@ -23,7 +23,12 @@ export class AdminService {
     return this.http.post<AdminInterface[]>(this.baseUrl, adminInfo)
   }
 
-  updateAdmin(adminUpdate: any): Observable<any> {
-    return this.http.put<AdminInterface[]>(this.baseUrl, adminUpdate)
+  updateAdmin(id: any, adminUpdate: any): Observable<any> {
+    return this.http.put<AdminInterface[]>(`${this.baseUrl + 'adminUpdate'}/${id}`, adminUpdate)
   }
+
+  deleteAdmin(id: any): Observable<any> {
+    return this.http.delete<AdminInterface>(`${this.baseUrl + 'deleteAdmin'}/${id}`)
+  }
+
 }

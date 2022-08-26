@@ -12,12 +12,15 @@ import { VideoInterface } from 'src/app/interfaces/video.interface';
 })
 export class HeaderComponent implements OnInit {
 
+  active:boolean = true;
   videosData: VideoInterface[] = [];  
   search = '';
   input: any = document.getElementById("searchInput");
-  btn: any = document.getElementById("myBtn")
+  header: any = document.getElementById("header")
 
-  constructor(private videoService: VideosService, private fb: FormBuilder, private router: Router) { }
+  constructor(private videoService: VideosService, private fb: FormBuilder, private router: Router) { 
+  //  this.location = router.url.includes('admin')
+  }
 
   ngOnInit(): void {
   }
@@ -38,7 +41,6 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-// Execute a function when the user releases a key on the keyboard
 
    
 }

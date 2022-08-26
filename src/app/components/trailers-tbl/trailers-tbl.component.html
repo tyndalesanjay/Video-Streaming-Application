@@ -1,35 +1,35 @@
 <div class="container">
-    <button routerLink="/admin">back</button>
+  <button routerLink="/admin">back</button>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Video name</th>
-                <th>Video link</th>
-                <th>Release date</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Date created</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>string</td>
-                <td>string</td>
-                <td>string</td>
-                <td>string</td>
-                <td>string</td>
-                <td>string</td>
-                <td>
-                    <a href="#">
-                        <i class="fa-solid fa-clapperboard"></i>
-                    </a>
-                    <a href="#">
-                        <i class="fa-solid fa-video-slash"></i>
-                    </a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+  <form action="" (submit)="updateTrailer(video._id)" [formGroup]="updateForm">
+    <h3>Edit trailer details</h3>
+
+    <div>
+      <label for="videoName">Video name</label>
+      <input id="videoName"  type="text" formControlName="videoName" required>
+    </div>
+    <div>
+      <label for="videoLink">Video link</label>
+      <input id="videoLink" type="text" formControlName="videoLink" required>
+    </div>
+    <div>
+      <label for="videoImage">Video Image</label>
+      <input id="videoImage" type="text" formControlName="videoImage" required>
+    </div>
+    <div>
+      <label for="releaseDate">Release date</label>
+      <input id="releaseDate" type="text" formControlName="releaseDate" required>
+    </div>
+    <div>
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" required></textarea>
+    </div>
+    <div>
+      <label for="status">Status</label>
+      <input id="status" type="text" formControlName="status" required>
+    </div>
+    <div>
+      <button type="submit">Update</button>
+    </div>
+  </form>
 </div>

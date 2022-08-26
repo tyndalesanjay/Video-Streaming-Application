@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="video-container">
+        <div class="back-icon">
+            <a [routerLink]="['/trailers']">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span class="back-text">Back</span>
+            </a>
+        </div>
+        <div class="playIcon" id="play/pause">
+            <div class="play-pause" *ngIf="playIcon">
+                <i class="fa-solid fa-circle-play"></i>
+            </div>
+        </div>
+        <div class="videoMedia">
+            <video width="320" height="240" controls src="{{video.videoLink}}" (click)="onplay()"></video>
+        </div>
+    </div>
+    <div class="video-info">
+        <div class="image-card">
+            <img src="{{video.videoImage}}" alt="">
+        </div>
+        <div class="words">
+            <h2>{{video.videoName}}</h2>
+            <p><span>Watch in Theaters: </span>{{video.releaseDate}}</p>
+            <p>{{video.description}}</p>
+        </div>
+    </div>
+</div>

@@ -7,8 +7,8 @@
     width: 70vw;
     margin: auto;
     margin-top: 2vw;
-    height: 90vh;
-    overflow: hidden;
+    
+    /* overflow: hidden; */
     box-shadow: 0px 0px 137px -82px rgba(191,219,230,0.75);
 }
 
@@ -21,8 +21,10 @@
 
 form{
     width: 50%;
-    height: 100%;
+    height: 50vw;
     padding: 2vw;
+    border: 1px red solid;
+    background-color: white;
 }
 
 form>h3{
@@ -48,12 +50,22 @@ form>div>textarea{
     outline: none;
 }
 
+form>div>a{
+    border: none;
+    border-radius: .2vw;
+    background: #0F70E6;
+    padding: 1vw 13.7vw;
+    color: whitesmoke;
+    font-size: 1.5vw;
+
+}
+
 form>div>button{
     border: none;
     border-radius: .2vw;
     background: #0F70E6;
-    width: 100%;
-    height: 3vw;
+    padding: 1vw 13.4vw;
     color: whitesmoke;
     font-size: 1.5vw;
+
 }

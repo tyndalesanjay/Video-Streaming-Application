@@ -1,8 +1,13 @@
 const Videos = require("../models/video.model");
 
+
 exports.getVideosActive = async (req, res, next) => {
   try {
-    let videoRequest = await Videos.find({ $where: function() { return ( this.status === "Active" ) } });
+    let videoRequest = await Videos.find({
+      $where: function () {
+        return this.status === "Active";
+      },
+    });
     res.status(200).json({
       status: "Success",
       length: videoRequest.length,
@@ -52,17 +57,13 @@ exports.getVideoId = async (req, res, next) => {
 
 exports.SearchVideos = async (req, res, next) => {
   try {
-    let data = await Videos.find(
-      {
-        "$or": [
-          {videoName: {$regex:req.params.key, '$options' : 'i'}},
-        ]
-      }
-    )
+    let data = await Videos.find({
+      $or: [{ videoName: { $regex: req.params.key, $options: "i" } }],
+    });
     res.status(200).json({
       status: "Success",
       length: data.length,
-      results: data
+      results: data,
     });
   } catch (error) {
     res.status({
@@ -71,17 +72,9 @@ exports.SearchVideos = async (req, res, next) => {
     });
   }
   next();
-  
-}
+};
 
 exports.videoUpload = async (req, res, next) => {
-  const videoInfo = {
-    releaseDate: req.body.releaseDate,
-    videoName: req.body.videoName,
-    description: req.body.description,
-    videoLink: req.body.videoLink
-  };
-
   // *Test File Upload
   // videoLink: "http://localhost:5000/" + req.file.filename
   // if (videoInfo.videoLink === !req.file) {
@@ -93,7 +86,7 @@ exports.videoUpload = async (req, res, next) => {
   // }
 
   try {
-    let video = await Videos.create(videoInfo);
+    let video = await Videos.create(req.body);
     res.status(202).json({
       status: "Success",
       results: video,
@@ -107,17 +100,27 @@ exports.videoUpload = async (req, res, next) => {
   next();
 };
 
-exports.updateVideoById = async (req, res, next) => {
-  const videoInfo = {
-    releaseDate: req.body.releaseDate,
-    videoName: req.body.videoName,
-    description: req.body.description,
-    videoLink: req.body.videoLink,
-    status: req.body.status
-  };
-
+exports.postReview = async (req, res, next) => {
   try {
-    let video = await Videos.findByIdAndUpdate(req.params.id, videoInfo);
+    let review = await Videos.findByIdAndUpdate(
+      {_id: req.params.id},
+      { $push: {reviews: req.body} }
+    )
+    res.status(202).json({
+      status: "Success",
+      results: review,
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: "fail",
+      message: next(error),
+    });
+  }
+}
+
+exports.updateVideoById = async (req, res, next) => {
+  try {
+    let video = await Videos.findByIdAndUpdate(req.params.id, req.body);
     res.status(202).json({
       status: "Success",
       results: video,
@@ -132,7 +135,6 @@ exports.updateVideoById = async (req, res, next) => {
 };
 
 exports.deleteVideoById = async (req, res, next) => {
-
   try {
     let video = await Videos.findByIdAndDelete(req.params.id);
     res.status(202).json({
@@ -149,7 +151,7 @@ exports.deleteVideoById = async (req, res, next) => {
 };
 
 exports.deleteAllDeclined = async (req, res, next) => {
-  var myquery = { status: 'Declined' };
+  var myquery = { status: "Declined" };
   try {
     let videoDelete = await Videos.deleteMany(myquery);
     res.status(200).json({
@@ -157,11 +159,11 @@ exports.deleteAllDeclined = async (req, res, next) => {
       length: videoDelete.length,
       results: videoDelete,
     });
-  }catch (err) {
+  } catch (err) {
     res.status(404).json({
       status: "fail",
       message: err,
     });
-    console.log(err.Message)
+    console.log(err.Message);
   }
 };

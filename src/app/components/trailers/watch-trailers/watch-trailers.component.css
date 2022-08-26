@@ -1,0 +1,78 @@
+.container {
+    background: #1B1B1B;
+}
+
+.video-container {
+    position: relative;
+}
+
+video{
+    background-color: black;
+    /* border-radius: 4px; */
+    height: 45.5vw;
+    object-fit:cover;
+    object-position: center; 
+    padding: 4.79vw 0 0;
+    width: 100%;  
+}
+
+.back-icon {
+    position: absolute;
+    margin: 1vw 1vw;
+}
+
+.back-icon > a {
+    color: red;
+    font-size: 2.3vw;
+    text-decoration: none;
+}
+
+.back-icon > a > .back-text {
+    margin: auto 0.54vw;
+    font-size: 2.434vw;
+}
+
+.playIcon {
+    position: absolute;
+    z-index: 99;
+    left: 47%;
+    top: 46.5%;
+    transform: translate(50% 50%);
+}
+
+.play-pause > .fa-circle-play {
+    color: red;
+    font-size: 6.2vw;
+}
+
+.video-info {
+    background: #1B1B1B;
+    max-height: 38vw;
+    padding: 1vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.image-card > img {
+    width: 24vw;
+    height: 34vw;
+    border-radius: 5px;
+}
+
+.words {
+    height: max-content;
+    width: 65vw;
+    margin-right: 5vw;
+    padding: 0.78vw;
+    color: white;
+}
+
+.words > h2 {
+    font-size: 3vw;
+    text-transform: uppercase;
+}
+
+.words > p {
+    font-size: 1.5vw;
+    line-height: 30px;
+}

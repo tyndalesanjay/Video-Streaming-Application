@@ -20,15 +20,24 @@ const videoSchema = new Schema({
   },
   description: {
     type: String,
+    required: true
   },
   status: {
     type: String,
     default: "Pending",
   },
-  createdDate: {
-    type: Date,
-    default: Date.now.toString,
-  },
+  reviews: [
+    {
+      username: {
+        type: String,
+        required: true
+      },
+      review: {
+        type: String,
+        required: true
+      }
+    }
+  ]
 });
 
 const Videos = mongoose.model("videos", videoSchema);
