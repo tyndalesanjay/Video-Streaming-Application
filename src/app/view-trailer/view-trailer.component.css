@@ -7,7 +7,7 @@
 }
 
 video{
-    background-color: black;
+    background-color: #F6F6F6;
     /* border-radius: 4px; */
     height: 45.5vw;
     object-fit:cover;
@@ -22,14 +22,18 @@ video{
 }
 
 .back-icon > a {
-    color: red;
-    font-size: 2.3vw;
     text-decoration: none;
 }
 
-.back-icon > a > .back-text {
-    margin: auto 0.54vw;
-    font-size: 2.434vw;
+.back-text{
+    border: none;
+    border-radius: .2vw;
+    padding: .5vw 1vw;
+    margin-bottom: 1vw;
+    background: black;
+    color: whitesmoke;
+    font-size: 1.5vw;
+    transition: .5s;
 }
 
 .playIcon {
@@ -84,17 +88,12 @@ video{
     /* border: 1px solid red; */
     background: whitesmoke;
     width: 100%;
-    /* padding: 2vw; */
-    /* color: whitesmoke; */
     font-size: 1.2vw;
-    padding: 1%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: right;
+    padding: 1% 2%;
 }
 
 .reviews{
-    width: 70%;
+    width: 100%;
 }
 
 .reviews > h1 {
@@ -120,58 +119,10 @@ video{
     line-height: 25px;
 }
 
-.review-form{
-    border: 1px solid black;
-    padding: 1vw;
-    background: white;
-    border-radius: 10px;
-    width: 25%;
-    height: fit-content;
-    margin-top: 4.7vw;
+li>span{
+    color: red;
 }
-
-.review-form> h3 {
-    text-align: center;
-    font-size: 1.6vw;
-    font-weight: 500;
-}
-
-.input>input, .input>textarea{
-    border: 1.6px solid gray;
-    outline: none;
-    width: 100%;
-    padding: 1%;
-    margin: .6%;
-    resize: vertical;
-    border-radius: 4px;
-    padding: 1vw;
-    /* transform: translateX(-50%); */
-}
-
-.input>textarea {
-    height: 10vw;
-    margin-top: 1vw;
-}
-
-button{
-    /* border: 1px solid red; */
-    border: none;
-    background: #CE1E1E;
-    border-radius: 5px;
-    /* width: 81%; */
-    font-size: 1.2vw;
-    padding: 1.3vw 5vw;
-    margin: 1vw 2vw;
-    color:whitesmoke;
-    transition: ease-out 1s;
-}
-
-button:hover {
-    border: 1.9px black solid;
-    outline: #CE1E1E;
-    background-color: transparent;
-    color: black;
+li>span:hover{
     cursor: pointer;
-    
+    text-decoration: underline;
 }
-

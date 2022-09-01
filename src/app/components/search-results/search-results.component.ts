@@ -14,6 +14,7 @@ export class SearchResultsComponent implements OnInit {
   videosData: VideoInterface[] = [];
   refreshed = true;
   video: any= document.getElementById("video");
+
   constructor(private videoService: VideosService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
@@ -28,12 +29,14 @@ export class SearchResultsComponent implements OnInit {
 
   getSearch(key: any): void{
     this.videoService.searchVideo(key).subscribe((data: any) => {
-      if(this.refreshed){
+      if(this.refreshed && data.length > 0){
         this.videosData = data.results
         this.refreshed = false
+      } else {
+        this.router.navigate(['/trailers'])
+        alert(`No Movies with ${key} Redirecting to List`)
       }
       console.error();
-      
     })
 
   }

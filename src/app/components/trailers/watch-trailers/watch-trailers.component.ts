@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { VideosService } from 'src/app/services/videos.service';
 import { VideoInterface } from 'src/app/interfaces/video.interface';
@@ -9,12 +10,11 @@ import { VideoInterface } from 'src/app/interfaces/video.interface';
   styleUrls: ['./watch-trailers.component.css']
 })
 export class WatchTrailersComponent implements OnInit {
-  video: any = []
+  video: any = [];
+  reviews: any = []
   PlayingVideo!: HTMLVideoElement;
-  playIcon:boolean = true
 
-
-  constructor(private route: ActivatedRoute, private videoService: VideosService) { }
+  constructor(private route: ActivatedRoute, private videoService: VideosService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.getById(this.route.snapshot.paramMap.get('id'));
@@ -27,15 +27,29 @@ export class WatchTrailersComponent implements OnInit {
         console.log('Data Empty')
       } else {
         this.video = data.results
+        this.reviews = this.video.reviews
         console.log(this.video)
       }
       
     })
   }
 
-  onplay() {
-    this.playIcon = !this.playIcon
-    
+  reviewForm = this.fb.group({
+    username: ['', Validators.required],
+    review: ['', Validators.required]
+  })
+
+  uploadReview() {
+    this.videoService.createReview(this.video._id, this.reviewForm.value ).subscribe((data: any) => {
+      if(data.length <= 0) {
+        console.error();
+        console.log('Data Empty')
+      } else {
+        this.reviews = this.video.reviews
+        window.location.reload()
+        console.log(this.reviews)
+      }
+    })
   }
 
   // onPlayingVideo(event: any) {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { VideoInterface } from 'src/app/interfaces/video.interface';
 import { VideosService } from 'src/app/services/videos.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-uploads',
   templateUrl: './uploads.component.html',
@@ -12,7 +13,7 @@ export class UploadsComponent implements OnInit {
   title = 'Upload';
   files: any;
 
-  constructor(private fb: FormBuilder, private videoService: VideosService) { }
+  constructor(private fb: FormBuilder, private videoService: VideosService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -33,13 +34,13 @@ export class UploadsComponent implements OnInit {
   // }
 
   sendVideo() {
-
     this.videoService.uploadVideo(this.uploadForm.value).subscribe((data: any) => {
       if(!data) {
         console.error();
       } else {
         console.log(data);
-        alert('Worked')
+        alert('A New Movie has been Added Successfully')
+        this.router.navigate(['/admin'])
       }
     })
   }

@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { TrailersRoutingModule } from './trailers-routing.module';
 import { TrailersComponent } from './trailers.component';
 import { WatchTrailersComponent } from './watch-trailers/watch-trailers.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -13,7 +15,10 @@ import { WatchTrailersComponent } from './watch-trailers/watch-trailers.componen
   ],
   imports: [
     CommonModule,
-    TrailersRoutingModule
+    TrailersRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    NgxPaginationModule
   ]
 })
 export class TrailersModule { }

@@ -55,6 +55,8 @@ exports.getVideoId = async (req, res, next) => {
   next();
 };
 
+
+// !Search Videos
 exports.SearchVideos = async (req, res, next) => {
   try {
     let data = await Videos.find({
@@ -73,6 +75,8 @@ exports.SearchVideos = async (req, res, next) => {
   }
   next();
 };
+// !End Search
+
 
 exports.videoUpload = async (req, res, next) => {
   // *Test File Upload

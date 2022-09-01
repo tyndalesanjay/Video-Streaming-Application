@@ -11,6 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { WatchTrailersComponent } from './components/trailers/watch-trailers/watch-trailers.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { ViewTrailerComponent } from './view-trailer/view-trailer.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppComponent,
     ViewAdminComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    ViewTrailerComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,6 @@
 <div class="container">
-    <div class="card" *ngFor="let video of videos">
+    <div class="card" *ngFor="let video of videos | paginate: { itemsPerPage: 10, currentPage: p }">
         <a [routerLink]="['watch_trailers', video._id]">
-            <!-- <video loop controls (playing)="onPlayingVideo($event)" width="900"
-            height="337"
-            style="width: 300px; height: 15vw;">
-                <source src="{{video.videoLink}}" type="video/mp4">
-            </video> -->
             <img src="{{video.videoImage}}" alt="" >
         </a>
         <div class="info">
@@ -14,4 +9,5 @@
             <p>{{video.description}}</p>
         </div>
     </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

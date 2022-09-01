@@ -1,8 +1,8 @@
 <div class="container">
     <div class="video-container">
         <div class="back-icon">
-            <a [routerLink]="['/trailers']">
-                <i class="fa-solid fa-arrow-left"></i>
+            <a [routerLink]="['/admin']">
+                <!-- <i class="fa-solid fa-arrow-left"></i> -->
                 <span class="back-text">Back</span>
             </a>
         </div>
@@ -27,23 +27,8 @@
             <ul *ngFor="let review of reviews">
                 <li style="font-weight: bold;">{{review.username}}</li>
                 <li><p>{{review.review}}</p></li>
+                <li><span>remove</span></li>
             </ul>
-            <!-- <ul>
-                <li *ngFor="let review of reviews">{{review.username}} <br>{{review.review}}</li>
-            </ul> -->
-        </div>
-
-        <div class="review-form">
-            <h3>Submit A Review</h3>
-            <form action="" [formGroup]="reviewForm" (submit)="uploadReview()">
-                <div class="input">
-                    <input type="text" formControlName="username" placeholder="Username"><br>
-                    <textarea name="review" id="review" cols="30" rows="1" formControlName="review" placeholder="Add comment"></textarea>
-                </div>
-                <div class="">
-                    <button type="submit">Submit Review</button>
-                </div>
-            </form>
         </div>
 
     </div>

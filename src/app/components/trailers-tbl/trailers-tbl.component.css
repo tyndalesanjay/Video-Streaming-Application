@@ -16,7 +16,7 @@
 }
 .container>button:hover{
     cursor: pointer;
-    background: #CE1E1E;
+    /* background: #CE1E1E; */
 }
 form{
     /* border: 1px solid red; */
@@ -64,7 +64,7 @@ form>div>textarea{
 form>div>button{
     border: none;
     border-radius: .2vw;
-    background: #CE1E1E;
+    background: #0F70E6;
     width: 100%;
     height: 3vw;
     color: whitesmoke;

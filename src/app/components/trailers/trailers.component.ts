@@ -11,6 +11,7 @@ import { FormBuilder } from '@angular/forms';
 export class TrailersComponent implements OnInit {
   videos: VideoInterface[] = [];
   currentPlayingVideo!: HTMLVideoElement;
+  p: any;
 
   constructor(private videoService: VideosService) {}
 

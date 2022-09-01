@@ -20,8 +20,12 @@ export class VideosService {
     return this.http.get<VideoInterface[]>(`${this.baseUrl + 'videos'}`)
   }
 
-  getVideoById(id: any): Observable<VideoInterface[]> {
+  getVideoById(id: string): Observable<VideoInterface[]> {
     return this.http.get<VideoInterface[]>(`${this.baseUrl + 'trailer'}/${id}`)
+  }
+
+  createReview(id: string, data: any): Observable<VideoInterface[]> {
+    return this.http.put<VideoInterface[]>(`${this.baseUrl + 'reviews'}/${id}`, data)
   }
 
   uploadVideo(videoInfo: any): Observable<any> {
@@ -32,9 +36,9 @@ export class VideosService {
     return this.http.put<VideoInterface[]>(`${this.baseUrl + 'updateVideo'}/${id}`, messageUpdate)
   }
 
-  searchVideo(key:any): Observable<VideoInterface[]> {
-    return this.http.get<VideoInterface[]>(`${this.baseUrl + 'searchVideos'}/${key}`)
-  }
+    searchVideo(key:any): Observable<VideoInterface[]> {
+      return this.http.get<VideoInterface[]>(`${this.baseUrl + 'searchVideos'}/${key}`)
+    }
 
   deleteVideo(id: any): Observable<VideoInterface[]> {
     return this.http.delete<VideoInterface[]>(`${this.baseUrl + 'deleteVideo'}/${id}`)
